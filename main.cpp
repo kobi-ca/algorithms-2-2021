@@ -2,7 +2,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <functional>
 
 // Return the number (count) of vowels in the given string.
 // We will consider a, e, i, o, u as vowels for this Kata (but not y).
@@ -20,5 +19,5 @@ int main(int, char*[]) {
     const std::vector<char> chrs{'a', 'e', 'i', 'o', 'u'};
 
     const auto has_vowels([&chrs](const auto c){ return is_in(c, chrs); });
-    std::clog << std::count_if(std::begin(input), std::end(input), std::not_fn(has_vowels)) << '\n';
+    std::clog << std::count_if(std::begin(input), std::end(input), has_vowels) << '\n';
 }
