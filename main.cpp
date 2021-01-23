@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <range/v3/all.hpp>
 
 // Return the number (count) of vowels in the given string.
 // We will consider a, e, i, o, u as vowels for this Kata (but not y).
@@ -20,4 +21,7 @@ int main(int, char*[]) {
 
     const auto has_vowels([&chrs](const auto c){ return is_in(c, chrs); });
     std::clog << std::count_if(std::begin(input), std::end(input), has_vowels) << '\n';
+
+    const auto cnt = ranges::distance(input | ranges::views::filter(has_vowels));
+    std::clog << cnt << '\n';
 }
