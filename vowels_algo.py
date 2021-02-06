@@ -3,7 +3,7 @@
 def count_vowels():
     vowels = set('aeiou')
     input_str = "hello world"
-    lst = [v for v in input_str if v not in vowels]
+    lst = [v for v in input_str if v in vowels]
     sz = len(lst)
     print(f"{sz}")
 
