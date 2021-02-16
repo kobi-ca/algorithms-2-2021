@@ -13,6 +13,7 @@ def better_count_vowels():
     vowels = set('aeiou')
     input_str = "hello world"
     filtered = filter(lambda x: x in vowels, input_str)
+    # https://stackoverflow.com/questions/3345785/getting-number-of-elements-in-an-iterator-in-python
     sz = sum(1 for _ in filtered)
     print(f"{sz}")
 
