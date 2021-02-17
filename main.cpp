@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
+#include <string_view>
 #include <range/v3/all.hpp>
 
 // Return the number (count) of vowels in the given string.
@@ -17,7 +18,8 @@ bool is_in(const ELEM &e, const CONT &c) {
 
 int main(int, char*[]) {
     const std::string input("hello world");
-    const std::array<char, 5> chrs{'a', 'e', 'i', 'o', 'u'};
+    using namespace std::literals;
+    const auto chrs{"aeiou"sv};
 
     const auto has_vowel([&chrs](const auto c){ return is_in(c, chrs); });
     std::clog << std::count_if(std::cbegin(input), std::cend(input), has_vowel) << '\n';
