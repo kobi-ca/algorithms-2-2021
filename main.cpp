@@ -18,10 +18,9 @@ bool is_in(const ELEM &e, const CONT &c) {
 
 int main(int, char*[]) {
     const std::string input("hello world");
-    using namespace std::literals;
-    const auto chrs{"aeiou"sv};
-
-    const auto has_vowel([&chrs](const auto c){ return is_in(c, chrs); });
+    const auto has_vowel([](const auto c){
+        using namespace std::literals;
+        return is_in(c, "aeiou"sv); });
     std::clog << std::count_if(std::cbegin(input), std::cend(input), has_vowel) << '\n';
 
     // with ranges
